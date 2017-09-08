@@ -1,6 +1,12 @@
 # RecyclerViewApplication
 Android RecyclerView的上拉加载更多，下拉刷新组件化封装
 **** ****
+* 下拉刷新
+* 上拉加载更多
+* 多布局模式适配
+* 加载中状态
+* 加载无数据状态
+**** ****
 ### pullrefreshrecyclerylib  开发文档
 <hr/>
 GitHub项目地址 <a href="#">点击查看详情</a>
