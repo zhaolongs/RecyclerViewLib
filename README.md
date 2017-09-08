@@ -16,13 +16,13 @@ compile project(':pullrefreshrecyclerylib')
 ##### 2 初始化基本使用
 效果样式 一 无上拉加载更多 也无下拉刷新功能
 <img src="http://orqv8r94o.bkt.clouddn.com/android_pull_recycler_2.gif"/>
-<——————————————————————————————>
+<br/><br/>
 效果样式 二 有上拉加载更多 有下拉刷新功能
 <img src="http://orqv8r94o.bkt.clouddn.com/android_pull_recycler_1.gif"/>
-<——————————————————————————————>
+<br/><br/>
 效果样式 三 无上拉加载更多 有下拉刷新功能
 <img src="http://orqv8r94o.bkt.clouddn.com/android_pull_recycler_3.gif"/>
-<——————————————————————————————>
+<br/><br/>
 效果样式 四 有上拉加载更多 无下拉刷新功能
 <img src="http://orqv8r94o.bkt.clouddn.com/android_pull_recycler_4.gif"/>
 
