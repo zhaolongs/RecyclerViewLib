@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="up_loading_more">正在加载更多数据</string>
+    <string name="up_loading_more_no_data">暂无更多数据</string>
+</resources>

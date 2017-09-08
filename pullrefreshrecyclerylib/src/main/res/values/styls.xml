@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--背景上显示文字样式（Base）-->
+    <style name = "style_bg_tv" >
+        <item name = "android:layout_width" >match_parent</item >
+        <item name = "android:layout_height" >wrap_content</item >
+        <item name = "android:gravity" >center</item >
+        <item name = "android:textSize" >14sp</item >
+        <item name = "android:textColor" >#d1cfcf</item >
+        <item name = "android:layout_marginTop" >20dp</item >
+    </style >
+    <style name = "style_bg_tv_c1" parent = "style_bg_tv" >
+        <item name = "android:layout_marginTop" >16dp</item >
+    </style >
+
+
+    <!--背景样式（Base）-->
+    <style name = "style_bg_ll" >
+        <item name = "android:layout_width" >match_parent</item >
+        <item name = "android:layout_height" >match_parent</item >
+        <item name = "android:gravity" >center_horizontal</item >
+        <item name = "android:background">#fff</item>
+        <item name = "android:orientation">vertical</item>
+    </style >
+
+
+    <!--刷新样式（refres）-->
+    <style name = "style_refresh_ll" >
+        <item name = "android:layout_width" >match_parent</item >
+        <item name = "android:layout_height" >63dp</item >
+        <item name = "android:gravity" >center</item >
+        <item name = "android:background">#434242</item>
+        <item name = "android:orientation">horizontal</item>
+    </style >
+
+
+
+    <!--刷新显示样式（refres）-->
+    <style name = "style_refresh_tv" >
+        <item name = "android:layout_width" >100dp</item >
+        <item name = "android:layout_height" >40dp</item >
+        <item name = "android:gravity" >center_vertical</item >
+        <item name = "android:textSize" >14sp</item >
+        <item name = "android:textColor" >#fafaff</item >
+        <item name = "android:layout_marginLeft" >16dp</item >
+    </style >
+</resources>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--背景-->
+        <LinearLayout
+            android:id="@+id/ll_root_background"
+            style="@style/style_bg_ll"
+            android:visibility="visible">
+
+        </LinearLayout>
+
+
+        <!--数据列表-->
+        <com.androidlongs.pullrefreshrecyclerylib.view.PullCustomRecyclerView
+            android:id="@+id/rv_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fcfcfc"
+            android:visibility="visible" />
+
+
+        <!--表层刷新显示布局-->
+        <LinearLayout
+            android:id="@+id/ll_pull_refresh_main"
+            style="@style/style_refresh_ll"
+            android:visibility="visible">
+
+            <ProgressBar
+                android:id="@+id/pb_pull_refresh_main"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <ImageView
+                android:id="@+id/iv_pull_refresh_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@drawable/bg_progress"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_pull_refesh"
+                style="@style/style_refresh_tv"
+                android:text="下拉刷新" />
+
+
+        </LinearLayout>
+
+        <com.androidlongs.pullrefreshrecyclerylib.view.QuickIndexBar
+            android:id="@+id/pull_refresh_index_bar"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="46dp"
+            android:background="@drawable/bg_button_selector"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:visibility="gone" />
+
+        <!--加载中-->
+        <LinearLayout
+            android:id="@+id/ll_pull_refresh_loading_ing"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_progress"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/tv_pull_refresh_loading_ing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="加载中 ..."
+                android:textColor="#02074e"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!--加载无数据-->
+        <LinearLayout
+            android:id="@+id/ll_pull_refresh_loading_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_pull_refresh_loading_no_data"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/loading_no_data" />
+
+            <TextView
+                android:id="@+id/tv_pull_refresh_loading_no_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/bg_button_selector"
+                android:paddingBottom="4dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="4dp"
+                android:text="暂无数据 点击重新加载"
+                android:textColor="#02074e"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>
