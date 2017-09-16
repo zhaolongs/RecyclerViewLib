@@ -342,10 +342,8 @@ public class PullRecyclerViewUtils<T> {
             mRecyclerView.setAdapter(mViewHolderAdapter);
 
             mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-            if ((mCurrentStatue == RECYCLRYVIEW_STATUE.UP_LOAD_MORE) || (mCurrentStatue == RECYCLRYVIEW_STATUE.PULL_AND_UP)) {
-                //设置滑动监听事件
-                mRecyclerView.setOnScrollListener(mOnScrollListener);
-            }
+            //设置滑动监听事件
+            mRecyclerView.setOnScrollListener(mOnScrollListener);
             if ((mCurrentStatue == RECYCLRYVIEW_STATUE.PULL_REFRESH) || (mCurrentStatue == RECYCLRYVIEW_STATUE.PULL_AND_UP)) {
                 //设置触摸
                 mRecyclerView.setOnTouchListener(mOnTouchListener);
@@ -638,38 +636,44 @@ public class PullRecyclerViewUtils<T> {
                     //获取总共的条目个数
                     int itemCount = mLinearLayoutManager.getItemCount();
 
-                    //当显示的条目数据大于10条时 才启用上拉加载更多功能
-                    if (itemCount > 10) {
-                        //当显示出最后一个条目时
-                        if (mLastVisibleItemPosition == itemCount - 1) {
-                            log("大于10 可以加载更多 " + itemCount);
-                            //加载更多
-                            if (!mIsLoading) {
-                                //更新加载标识
-                                mIsLoading = true;
-                                //加载更多数据
-                                //接口回调
-                                //上拉加载更多
+                    /**
+                     * 有上拉加载更多的状态时 启用
+                     */
+                    if ((mCurrentStatue == RECYCLRYVIEW_STATUE.UP_LOAD_MORE) || (mCurrentStatue == RECYCLRYVIEW_STATUE.PULL_AND_UP)) {
+                        //当显示的条目数据大于10条时 才启用上拉加载更多功能
+                        if (itemCount > 10) {
+                            //当显示出最后一个条目时
+                            if (mLastVisibleItemPosition == itemCount - 1) {
+                                log("大于10 可以加载更多 " + itemCount);
+                                //加载更多
+                                if (!mIsLoading) {
+                                    //更新加载标识
+                                    mIsLoading = true;
+                                    //加载更多数据
+                                    //接口回调
+                                    //上拉加载更多
 
-                                int size = 0;
+                                    int size = 0;
 
-                                if (mStringList != null && mStringList.size() > 0) {
-                                    size = mStringList.size();
+                                    if (mStringList != null && mStringList.size() > 0) {
+                                        size = mStringList.size();
+                                    }
+
+                                    mCurrentUpLoadingStatue = RECYCLERVIEW_UP_LOADING_STATUE.LIST_NOT_NULL;
+                                    mViewHolderAdapter.notifyItemChanged(size);
+                                    if (mPullRecyclerViewLinserner != null) {
+                                        mPullRecyclerViewLinserner.loadMoreData();
+                                    }
+                                    //更新网络加载状态
+                                    mNetLoadingStatue = NETLOADINGSTATE.UP_LOADING;
+
                                 }
-
-                                mCurrentUpLoadingStatue = RECYCLERVIEW_UP_LOADING_STATUE.LIST_NOT_NULL;
-                                mViewHolderAdapter.notifyItemChanged(size);
-                                if (mPullRecyclerViewLinserner != null) {
-                                    mPullRecyclerViewLinserner.loadMoreData();
-                                }
-                                //更新网络加载状态
-                                mNetLoadingStatue = NETLOADINGSTATE.UP_LOADING;
-
                             }
+                        } else {
+                            log("小于10 不可以加载更多 " + itemCount + " " + childCount);
                         }
-                    } else {
-                        log("小于10 不可以加载更多 " + itemCount + " " + childCount);
                     }
+
                 }
             }
 
@@ -2813,13 +2817,7 @@ public class PullRecyclerViewUtils<T> {
      */
     public void setRecyclerviewStatue(RECYCLRYVIEW_STATUE statue) {
         mCurrentStatue = statue;
-
-        if ((mCurrentStatue == RECYCLRYVIEW_STATUE.UP_LOAD_MORE) || (mCurrentStatue == RECYCLRYVIEW_STATUE.PULL_AND_UP)) {
-            //设置滑动监听事件
-            mRecyclerView.setOnScrollListener(mOnScrollListener);
-        } else {
-            mRecyclerView.setOnScrollListener(null);
-        }
+        mRecyclerView.setOnScrollListener(mOnScrollListener);
         if ((mCurrentStatue == RECYCLRYVIEW_STATUE.PULL_REFRESH) || (mCurrentStatue == RECYCLRYVIEW_STATUE.PULL_AND_UP)) {
             //设置触摸
             mRecyclerView.setOnTouchListener(mOnTouchListener);
