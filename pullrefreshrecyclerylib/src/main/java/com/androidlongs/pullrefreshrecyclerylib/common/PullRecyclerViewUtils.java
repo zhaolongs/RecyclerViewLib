@@ -316,6 +316,17 @@ public class PullRecyclerViewUtils<T> {
 
                     mPullRefshLayout.layout(0, -mPullRefshLayoutHeight, mPullRefshLayout.getWidth(), 0);
 
+                    /**
+                     * 处理布局文件被重新加载问题
+                     */
+                    if (mStringList != null&&mStringList.size()>0) {
+                        if (mLoadingNoDataLinearLayout != null) {
+                            mLoadingNoDataLinearLayout.setVisibility(View.GONE);
+                        }
+                        if (mLoadingIngLinearLayout != null) {
+                            mLoadingIngLinearLayout.setVisibility(View.GONE);
+                        }
+                    }
 //                    if (mStringList==null||mStringList.size()==0) {
 //                        mLoadingIngLinearLayout.setVisibility(View.GONE);
 //                        mLoadingNoDataLinearLayout.setVisibility(View.VISIBLE);
